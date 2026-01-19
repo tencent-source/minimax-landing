@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MiniMax Coding Plan New Year Mega Offer - Get 10% OFF with our exclusive referral program. Unlock powerful AI/API services and earn rewards for sharing.">
+    <meta name="keywords" content="MiniMax, AI API, Coding Plan, New Year Offer, Referral Program, AI Development, API Services">
+    <meta property="og:title" content="MiniMax Coding Plan - New Year Mega Offer | 10% OFF Referral Program">
+    <meta property="og:description" content="Exclusive New Year referral program. Friends get 10% OFF, you get API vouchers. Limited time offer.">
+    <meta property="og:type" content="website">
+    <title>MiniMax Coding Plan - New Year Mega Offer | Exclusive 10% OFF Referral Program</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --bg-card-hover: #222230;
+            --gold-primary: #d4a853;
+            --gold-light: #f0d78c;
+            --gold-dark: #a67c2e;
+            --red-primary: #c41e3a;
+            --red-light: #e63950;
+            --red-dark: #8b1528;
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8c8;
+            --text-muted: #6b6b7b;
+            --border-subtle: rgba(212, 168, 83, 0.15);
+            --glow-gold: rgba(212, 168, 83, 0.4);
+            --glow-red: rgba(196, 30, 58, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Chinese Pattern Overlay */
+        .chinese-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            z-index: 0;
+            background-image:
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 20px,
+                    rgba(212, 168, 83, 0.1) 20px,
+                    rgba(212, 168, 83, 0.1) 21px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 20px,
+                    rgba(212, 168, 83, 0.1) 20px,
+                    rgba(212, 168, 83, 0.1) 21px
+                );
+        }
+
+        /* Floating Lanterns */
+        .lantern {
+            position: fixed;
+            width: 30px;
+            height: 45px;
+            background: linear-gradient(180deg, var(--red-primary) 0%, var(--red-dark) 100%);
+            border-radius: 50% 50% 45% 45%;
+            opacity: 0.15;
+            animation: floatLantern 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .lantern::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 8px;
+            background: var(--gold-primary);
+            border-radius: 2px 2px 0 0;
+        }
+
+        .lantern::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 15px;
+            background: linear-gradient(180deg, var(--gold-primary), transparent);
+        }
+
+        .lantern:nth-child(1) { left: 5%; top: 20%; animation-delay: 0s; }
+        .lantern:nth-child(2) { left: 15%; top: 60%; animation-delay: -5s; }
+        .lantern:nth-child(3) { right: 5%; top: 30%; animation-delay: -10s; }
+        .lantern:nth-child(4) { right: 12%; top: 70%; animation-delay: -15s; }
+
+        @keyframes floatLantern {
+            0%, 100% { transform: translateY(0) rotate(-3deg); }
+            50% { transform: translateY(-30px) rotate(3deg); }
+        }
+
+        /* Cloud Decorations */
+        .cloud {
+            position: absolute;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .cloud svg {
+            fill: var(--gold-primary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, transparent 100%);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .nav-cta {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--red-primary) 0%, var(--red-dark) 100%);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 20px var(--glow-red);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--glow-red);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 120px 0 80px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(196, 30, 58, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(212, 168, 83, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(212, 168, 83, 0.05) 0%, transparent 70%);
+        }
+
+        .hero-dragon {
+            position: absolute;
+            right: -100px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 600px;
+            height: 600px;
+            opacity: 0.04;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d4a853' d='M50 10c-5 0-10 5-15 10s-10 15-10 25c0 15 10 25 25 25s25-10 25-25c0-10-5-20-10-25s-10-10-15-10zm-5 20c2 0 4 2 4 4s-2 4-4 4-4-2-4-4 2-4 4-4zm10 0c2 0 4 2 4 4s-2 4-4 4-4-2-4-4 2-4 4-4z'/%3E%3C/svg%3E") center/contain no-repeat;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.15) 0%, rgba(212, 168, 83, 0.05) 100%);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            margin-bottom: 32px;
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-badge::before {
+            content: '🧧';
+            font-size: 1rem;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-light) 50%, var(--gold-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-title span {
+            display: block;
+            background: linear-gradient(135deg, var(--red-light) 0%, var(--red-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 48px;
+            line-height: 1.7;
+        }
+
+        /* Offer Cards */
+        .offer-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .offer-card {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 36px 28px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--red-primary), var(--gold-primary));
+        }
+
+        .offer-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px var(--glow-gold);
+        }
+
+        .offer-card-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.2) 0%, rgba(212, 168, 83, 0.05) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .offer-card-label {
+            font-size: 0.8rem;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .offer-card-value {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .offer-card-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 48px;
+            background: linear-gradient(135deg, var(--red-primary) 0%, var(--red-dark) 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.15rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            box-shadow: 0 8px 32px var(--glow-red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 48px var(--glow-red);
+        }
+
+        .cta-button svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(212, 168, 83, 0.1);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-subtle), var(--gold-primary), var(--border-subtle), transparent);
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            position: relative;
+        }
+
+        .step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 40px 32px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--bg-primary);
+            box-shadow: 0 4px 20px var(--glow-gold);
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .step-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Benefits */
+        .benefits {
+            background: var(--bg-primary);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .benefit {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 32px 28px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-4px);
+        }
+
+        .benefit-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.2) 0%, rgba(196, 30, 58, 0.05) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .benefit-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 32px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .stat:hover {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 30px var(--glow-gold);
+        }
+
+        .stat-value {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .testimonial {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 24px;
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            color: var(--gold-primary);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            padding-top: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--gold-primary) 0%, var(--red-primary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--bg-primary);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--gold-primary);
+        }
+
+        .faq-question {
+            padding: 24px 28px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--gold-light);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--gold-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--gold-primary);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            background: var(--gold-primary);
+            color: var(--bg-primary);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer-content {
+            padding: 0 28px 24px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 30% 50%, rgba(196, 30, 58, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 50%, rgba(212, 168, 83, 0.1) 0%, transparent 50%);
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .urgency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.2) 0%, rgba(196, 30, 58, 0.05) 100%);
+            border: 1px solid rgba(196, 30, 58, 0.3);
+            border-radius: 100px;
+            margin-bottom: 32px;
+            font-size: 0.9rem;
+            color: var(--red-light);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .final-cta-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .final-cta-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 32px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .guarantee svg {
+            color: var(--gold-primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 48px 0 32px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .offer-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-button {
+                padding: 18px 36px;
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .lantern {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-cta {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="chinese-pattern"></div>
+
+    <!-- Floating Lanterns -->
+    <div class="lantern"></div>
+    <div class="lantern"></div>
+    <div class="lantern"></div>
+    <div class="lantern"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-content">
+            <div class="logo">MINIMAX</div>
+            <a href="https://platform.minimax.io/subscribe/coding-plan?code=6A7d87ipnt&source=link" class="nav-cta" target="_blank">Claim Your 10% OFF</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-dragon"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Limited Time Offer</div>
+                <h1 class="hero-title">
+                    New Year Mega Offer
+                    <span>MiniMax Coding Plan</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Unlock the power of advanced AI APIs this New Year. Share prosperity with friends and earn rewards together through our exclusive referral program.
+                </p>
+
+                <div class="offer-cards">
+                    <div class="offer-card fade-in">
+                        <div class="offer-card-icon">🎁</div>
+                        <div class="offer-card-label">For Your Friends</div>
+                        <div class="offer-card-value">10% OFF</div>
+                        <div class="offer-card-desc">Exclusive discount on MiniMax Coding Plan subscription. Start building with powerful AI APIs at a special New Year price.</div>
+                    </div>
+                    <div class="offer-card fade-in">
+                        <div class="offer-card-icon">🎊</div>
+                        <div class="offer-card-label">For You (Referrer)</div>
+                        <div class="offer-card-value">API Vouchers</div>
+                        <div class="offer-card-desc">Earn ready-to-use API vouchers for every successful referral. More friends, more credits, more building power.</div>
+                    </div>
+                </div>
+
+                <a href="https://platform.minimax.io/subscribe/coding-plan?code=6A7d87ipnt&source=link" class="cta-button" target="_blank">
+                    Get Your Exclusive 10% OFF
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Simple Process</div>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Three simple steps to unlock your New Year rewards and share the prosperity</p>
+            </div>
+
+            <div class="steps">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">🔗</div>
+                    <h3 class="step-title">Share Your Link</h3>
+                    <p class="step-desc">Share your unique referral link with friends, colleagues, or your developer community. Every click is a potential reward.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">✨</div>
+                    <h3 class="step-title">Friends Subscribe</h3>
+                    <p class="step-desc">When friends sign up using your link, they automatically receive an exclusive 10% discount on their MiniMax Coding Plan.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">🎉</div>
+                    <h3 class="step-title">Earn API Vouchers</h3>
+                    <p class="step-desc">For every successful referral, you receive ready-to-use API vouchers. The more you share, the more you earn!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Benefits -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Why MiniMax</div>
+                <h2 class="section-title">Powerful AI at Your Fingertips</h2>
+                <p class="section-subtitle">MiniMax Coding Plan gives you access to cutting-edge AI capabilities for your projects</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit fade-in">
+                    <div class="benefit-icon">⚡</div>
+                    <h3 class="benefit-title">Lightning-Fast APIs</h3>
+                    <p class="benefit-desc">Experience blazing-fast response times with our optimized infrastructure. Build real-time applications without lag.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon">🧠</div>
+                    <h3 class="benefit-title">Advanced AI Models</h3>
+                    <p class="benefit-desc">Access state-of-the-art language models, vision capabilities, and multimodal AI for any use case.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon">📊</div>
+                    <h3 class="benefit-title">Generous Quotas</h3>
+                    <p class="benefit-desc">High token limits and affordable pricing mean you can build and scale without worrying about costs.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon">🔒</div>
+                    <h3 class="benefit-title">Enterprise Security</h3>
+                    <p class="benefit-desc">Bank-grade encryption and compliance standards keep your data and applications secure.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon">📚</div>
+                    <h3 class="benefit-title">Rich Documentation</h3>
+                    <p class="benefit-desc">Comprehensive guides, tutorials, and examples to get you building in minutes, not hours.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon">🌐</div>
+                    <h3 class="benefit-title">Global Infrastructure</h3>
+                    <p class="benefit-desc">Distributed servers worldwide ensure low latency for users wherever they are located.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Trusted Worldwide</div>
+                <h2 class="section-title">Join Thousands of Developers</h2>
+                <p class="section-subtitle">See why developers and companies trust MiniMax for their AI needs</p>
+            </div>
+
+            <div class="stats fade-in">
+                <div class="stat">
+                    <div class="stat-value">50K+</div>
+                    <div class="stat-label">Active Developers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">10M+</div>
+                    <div class="stat-label">API Calls Daily</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">99.9%</div>
+                    <div class="stat-label">Uptime SLA</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">4.9/5</div>
+                    <div class="stat-label">Developer Rating</div>
+                </div>
+            </div>
+
+            <div class="testimonials">
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">MiniMax Coding Plan transformed how we build AI features. The API is incredibly fast and the documentation made integration a breeze. Best investment for our startup.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JC</div>
+                        <div>
+                            <div class="testimonial-name">James Chen</div>
+                            <div class="testimonial-role">CTO, TechFlow AI</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">The referral program is amazing! I shared with my developer community and earned enough API credits to run my side projects for months. Highly recommend.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SW</div>
+                        <div>
+                            <div class="testimonial-name">Sarah Williams</div>
+                            <div class="testimonial-role">Full Stack Developer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">Switched from other providers and never looked back. Better models, better pricing, and the 10% referral discount helped our whole team get started affordably.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MK</div>
+                        <div>
+                            <div class="testimonial-name">Michael Kim</div>
+                            <div class="testimonial-role">AI Engineer, DataPulse</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Questions Answered</div>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about the New Year Mega Offer</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>How does the 10% discount work?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            When someone signs up for MiniMax Coding Plan using your unique referral link, they automatically receive a 10% discount on their subscription. The discount is applied at checkout with no additional steps required.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>What API vouchers do I earn as a referrer?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            For each successful referral (when your friend completes their subscription), you receive ready-to-use API vouchers credited to your account. These vouchers can be used for any MiniMax API services and never expire.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Is there a limit to how many friends I can refer?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            No limits! You can refer as many friends as you want during the New Year Mega Offer period. The more friends who sign up, the more API vouchers you earn. Share widely with your network!
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>How long is this offer available?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            This is a limited-time New Year Mega Offer. We recommend taking advantage of it as soon as possible to secure your 10% discount and start earning referral rewards before the promotion ends.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>What is included in the MiniMax Coding Plan?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            The Coding Plan includes access to MiniMax's full suite of AI APIs including language models, vision capabilities, and multimodal features. You get generous monthly quotas, priority support, and access to the latest model updates.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="final-cta-content fade-in">
+                <div class="urgency-badge">
+                    <span>🔥</span>
+                    Limited Time - New Year Mega Offer
+                </div>
+                <h2 class="final-cta-title">Start Building with AI Today</h2>
+                <p class="final-cta-subtitle">Claim your exclusive 10% discount and join thousands of developers already building the future with MiniMax.</p>
+
+                <a href="https://platform.minimax.io/subscribe/coding-plan?code=6A7d87ipnt&source=link" class="cta-button" target="_blank">
+                    Claim Your 10% OFF Now
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </a>
+
+                <div class="guarantee">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    Secure checkout with instant access after payment
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">MINIMAX</div>
+                <p class="footer-text">Empowering developers with cutting-edge AI technology</p>
+                <div class="footer-links">
+                    <a href="https://platform.minimax.io" target="_blank">Platform</a>
+                    <a href="https://platform.minimax.io/subscribe/coding-plan?code=6A7d87ipnt&source=link" target="_blank">Pricing</a>
+                    <a href="#" target="_blank">Documentation</a>
+                    <a href="#" target="_blank">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+                // Open clicked if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
